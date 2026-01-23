@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from "express";
 import { APIResponse } from "../utils/response.util";
-import z from "zod";
 import { uploadSchema } from "./vision-board.schema";
 import { visionBoardService } from "./vision-board.service";
 
@@ -17,17 +16,10 @@ const visionBoardPost = async (
       message: body.message,
     });
 
-    if (!req.file) {
-      return res.status(400).json({
-        status: "error",
-        message: "Photo is required",
-      });
-    }
-
     const visionBoard = await visionBoardService.createVisionBoard({
       name: parsed.name,
       message: parsed.message,
-      file: req.file,
+      file: req.file ?? null,
     });
 
     return res.status(201).json({

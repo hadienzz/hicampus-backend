@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://hicampus2k26.vercel.app/"],
+    origin: ["http://localhost:3000", "https://hicampus2k26.vercel.app"],
   }),
 );
 

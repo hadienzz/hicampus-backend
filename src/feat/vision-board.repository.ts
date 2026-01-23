@@ -11,7 +11,7 @@ export const visionBoardRepository = {
       data: {
         name,
         message,
-        photo_url: photoUrl,
+			photo_url: photoUrl,
       },
     });
     return visionBoard;
